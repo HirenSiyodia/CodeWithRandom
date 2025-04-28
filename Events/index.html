@@ -1,0 +1,68 @@
+<!-- Events -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM-Browser Object Model</title>
+    <style>
+        .btn {
+             padding: 10px 15px;
+             border-radius: 5px;
+             cursor: pointer;
+             background-color: #f1c40f;
+             color: #fff;
+             border: none;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn" >Click Me..</button>
+    <button class="btn" onclick="alert('its clicked')">Click Me..</button>
+<script src="main.js"></script>
+</body>
+</html> -->
+
+<!-- Event Bubbling= where an event triggered on a child element propagates upward through its ancestors p>h1>body>html>doc -->
+<!-- Event capturing= Event capturing occurs when a nested element gets clicked. The click event of its parent elements must be triggered before the click of the nested element. doc >html>body>h1>p --> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Event Bubbling</title>
+    <style>
+        div{
+            padding:10px;
+            border: 1px solid black;
+            height: 80px;
+            width: 80px;
+        }
+    </style>
+    <script src="main.js"></script>
+</head>
+<body>
+    <div>
+        <button class="child">Click Me..</button>
+    </div>
+    <script>
+
+        const Parent = document.querySelector("div");
+        const Child = document.querySelector(".child");
+        const body = document.querySelector("body");
+
+        body.addEventListener("click", function(){
+            console.log('its body');
+        }, true); // true n false is 
+
+        Parent.addEventListener("click", function() {
+            console.log("its parent");
+            
+        }, false);
+
+        Child.addEventListener("click", function() {
+            console.log("it is child");
+        
+        }, false);
+
+    </script>
+</body>
+</html>
